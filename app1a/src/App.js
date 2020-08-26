@@ -3,8 +3,12 @@ import './App.css';
 
 //importando algo desde una constante
 import tasks from './sample/tasks.json';
-import Tasks from './components/Tasks.js';
 
+//components
+import Tasks from './components/Tasks.js';
+import TaskForm from './components/TaskForm.js';
+
+ 
 
 class app1a extends Component {
     state = {
@@ -14,6 +18,7 @@ class app1a extends Component {
     render() {
         return (
             <div>
+            <TaskForm/>
                 <Tasks tasks = {this.state.tasks}/>
             </div>
         );
