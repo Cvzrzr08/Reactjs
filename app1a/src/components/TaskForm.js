@@ -10,17 +10,16 @@ export default class TaskForm extends Component {
 
     //[2]
     onSubmitX = (e) => {
-        console.log('probando perro');
         e.preventDefault();
+        console.log(this.state);
     }
 
     onChangeX = (e) => {
-        this.setState({
+        this.setState({      //escucha evento de cada tipeo.
             [e.target.name]: e.target.value
-        
+                     //agrega escucha a la propiedad name->         
         })
-                    //escucha el evento cada que tipeo
-        //console.log(e.target.value)
+        console.log(e.target.name, e.target.value);
     }
 
     //[1]
