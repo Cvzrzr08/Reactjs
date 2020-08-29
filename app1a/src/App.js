@@ -15,10 +15,16 @@ class app1a extends Component {
         tasks: tasks
     }
 
+    addTask = () => {
+        console.log('adding a new task')
+    }
+
     render() {
+        //this.addTask(); Mandarla a TaskForm.js -> props   
+
         return (
             <div>
-            <TaskForm/>
+            <TaskForm addTask={this.addTask}/>
                 <Tasks tasks = {this.state.tasks}/>
             </div>
         );

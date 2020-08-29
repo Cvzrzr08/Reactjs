@@ -24,6 +24,8 @@ export default class TaskForm extends Component {
 
     //[1]
     render() {
+        //console.log(this.props);
+        this.props.addTask();
         return (
             <form onSubmit={this.onSubmitX}>
                 <input
