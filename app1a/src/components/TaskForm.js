@@ -10,8 +10,9 @@ export default class TaskForm extends Component {
 
     //[2]
     onSubmitX = (e) => {
+        this.props.addTask(this.state.title, this.state.description)
         e.preventDefault();
-        console.log(this.state);
+        //console.log(this.state);
     }
 
     onChangeX = (e) => {
@@ -19,13 +20,15 @@ export default class TaskForm extends Component {
             [e.target.name]: e.target.value
                      //agrega escucha a la propiedad name->         
         })
-        console.log(e.target.name, e.target.value);
+        //console.log(e.target.name, e.target.value);
     }
 
     //[1]
     render() {
+
         //console.log(this.props);
-        this.props.addTask();
+        //this.props.addTask('title one', 'description one'); ->datos de prueba redefinir en onsubmit
+
         return (
             <form onSubmit={this.onSubmitX}>
                 <input

@@ -15,15 +15,26 @@ class app1a extends Component {
         tasks: tasks
     }
 
-    addTask = () => {
-        console.log('adding a new task')
+    addTask = (title, description) => {
+        //creando objeto almacednado en constante(como memoria artificial)
+        const newTask = {
+            title: title,
+            description: description,
+            id:45
+
+        }
+        console.log(newTask);
+        this.setState({ //memoria inicial
+            tasks: [...this.state.tasks, newTask]
+        })                              //añadiendo tarea creada
     }
 
     render() {
+
         //this.addTask(); Mandarla a TaskForm.js -> props   
 
         return (
-            <div>
+            <div>     {"X"}         {"f(x)"}
             <TaskForm addTask={this.addTask}/>
                 <Tasks tasks = {this.state.tasks}/>
             </div>
