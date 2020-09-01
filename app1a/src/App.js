@@ -20,13 +20,31 @@ class app1a extends Component {
         const newTask = {
             title: title,
             description: description,
-            id:45
+            id: this.state.tasks.length
 
         }
         console.log(newTask);
         this.setState({ //memoria inicial
             tasks: [...this.state.tasks, newTask]
         })                              //añadiendo tarea creada
+
+    }
+
+    deleteTask = (id) => {
+        const newTask = this.state.tasks.filter(task => task.id !== id)
+        console.log(newTask); 
+        // alterando en el render, (arreglo a alterar: nuevas tareas)
+        this.setState({tasks: newTask})
+    }
+
+    checkDone = (id) => {
+        const newTasks = this.state.tasks.map(task => {
+            if (task.id === id) {
+                task.done = !task.done
+            }
+            return task;
+        })
+        this.setState({tasks: newTasks})
     }
 
     render() {
@@ -34,9 +52,9 @@ class app1a extends Component {
         //this.addTask(); Mandarla a TaskForm.js -> props   
 
         return (
-            <div>     {"X"}         {"f(x)"}
-            <TaskForm addTask={this.addTask}/>
-                <Tasks tasks = {this.state.tasks}/>
+            <div>     
+            <TaskForm addTask={this.addTask}/> 
+                <Tasks tasks = {this.state.tasks} deleteTask = {this.deleteTask} checkDone = {this.checkDone}/>
             </div>
         );
     }

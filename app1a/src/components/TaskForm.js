@@ -27,7 +27,7 @@ export default class TaskForm extends Component {
     render() {
 
         //console.log(this.props);
-        //this.props.addTask('title one', 'description one'); ->datos de prueba redefinir en onsubmit
+       //{a}this.props.addTask('title one', 'description one'); ->datos de prueba redefinir en onsubmit
 
         return (
             <form onSubmit={this.onSubmitX}>
