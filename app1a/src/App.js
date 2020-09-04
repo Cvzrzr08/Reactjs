@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
+
 import './App.css';
 
 //importando algo desde una constante
@@ -9,7 +12,6 @@ import Tasks from './components/Tasks.js';
 import TaskForm from './components/TaskForm.js';
 import Posts from './components/Posts'
 
- 
 
 class app1a extends Component {
     state = {
@@ -52,19 +54,35 @@ class app1a extends Component {
 
         //this.addTask(); Mandarla a TaskForm.js -> props   
 
-        return (
-            <div>     
-            <TaskForm addTask={this.addTask}/> 
-            <Tasks 
-                tasks = {this.state.tasks} 
-                deleteTask = {this.deleteTask} 
-                checkDone = {this.checkDone}/>
+        return (<div>     
 
+            <Router>
+
+                <Link to = "/"> home </Link>
+                <br/>
+                <Link to = "/posts"> Posts</Link>
+
+                <Route exact path ="/" render = {() => {
+                return <div>     
+                <TaskForm addTask={this.addTask}/> 
+                <Tasks 
+                    tasks = {this.state.tasks} 
+                    deleteTask = {this.deleteTask} 
+                    checkDone = {this.checkDone}/>
+                </div>
+                }}>
+                </Route>
                 
-            <Posts/>
-            </div>
+                <Route path ="/posts" component = {Posts} />
+            </Router>
+
+
+        </div>
         );
     }
 }
 
 export default app1a;
+            //<Posts/> se mando al <Route
+                                        //propiedad / nombre a asignar    / a renderizar
+                                        //<Route path =   "/posts"         Component = {Posts}>
