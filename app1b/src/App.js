@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState }from 'react';
 import './App.css';
 
 //importing components
@@ -6,16 +6,19 @@ import Form from './components/Form'
 import TodoList from './components/TodoList';
 
 function App() {
+    const [inputText, setInputText] = useState("");
+
+
   return (
-      <header>
-      <div>
-          hellow shane...
-          I'm really gussbones
-          I'm put on a headeir
-      </div>
-      <Form />
+      <div className="App">
+        <header>
+            <h1>
+          I'm put on a headeir{inputText}
+            </h1>
+        </header>
+      <Form setInputText={setInputText}/>
       <TodoList/>
-      </header>
+      </div>
   );
 }
 

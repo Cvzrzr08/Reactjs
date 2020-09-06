@@ -1,10 +1,17 @@
 import React from 'react';
 
-const Form = () => {
+const Form = (props) => {
+    //here I can write js code and function
+    const inputTextHandler = (e) => {
+        console.log(e.target.value);
+        props.setInputText();
+        props.setInputText(e.target.value);
+    }
+
 
     return (
         <form>
-            <input type="text" className="todo-input"/>
+            <input onChange={inputTextHandler} type="text" className="todo-input"/>
             <button className="todo-button" type="submit">
                 <i className="fas fa-plus-square"></i>
             </button>
