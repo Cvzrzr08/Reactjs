@@ -1,18 +1,25 @@
 import React from 'react';
 
-const Form = (props) => {
+const Form = ({ setInputText, todos, setTodos, inputText}) => {
     //here I can write js code and function
     const inputTextHandler = (e) => {
-        console.log(e.target.value);
-        props.setInputText();
-        props.setInputText(e.target.value);
+        //console.log(e.target.value);
+        setInputText(e.target.value);
+    }
+    const submitTodoHandler = (e) => {
+        e.preventDefault();
+        setTodos([
+            ...todos, {text: inputText, completed: false, id: Math.random()*1000} 
+        ])
+        //reset al click(en state), complemento value en input onChange
+        setInputText("");
     }
 
 
     return (
         <form>
-            <input onChange={inputTextHandler} type="text" className="todo-input"/>
-            <button className="todo-button" type="submit">
+            <input value={inputText} onChange={inputTextHandler} type="text" className="todo-input"/>
+            <button onClick={submitTodoHandler} className="todo-button" type="submit">
                 <i className="fas fa-plus-square"></i>
             </button>
             <div className="select">

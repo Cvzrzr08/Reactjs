@@ -21,3 +21,11 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+
+#swp vim
+.App.js.swp
+.gitignore.swp
+.Form.js.swp
+.TodoList.js.swp
