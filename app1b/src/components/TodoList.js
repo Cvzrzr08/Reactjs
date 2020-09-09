@@ -7,15 +7,15 @@ const TodoList = ({ todos, setTodos }) => {
 
     return (
         <div className="todo-container">
-            <ul className="todo-list" ></ul>
+            <ul className="todo-list" >
             {todos.map((todo) => 
                 <Todo
-                    todo={todo}
+                    todo={todo}//para comunicar con el form(props)
                     setTodos={setTodos}
                     todos={todos} 
-                    key={todo.id} 
+                    key={todo.id} //id para cada nuevo arreglo en map
                     text={todo.text} />
-            )}
+            )}</ul>
         </div>
 
 
