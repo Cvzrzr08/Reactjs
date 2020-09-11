@@ -29,3 +29,7 @@ yarn-error.log*
 .gitignore.swp
 .Form.js.swp
 .TodoList.js.swp
+.Form.js.swo
+.Todo.js.swo
+.Todo.js.swp
+.Todo.js.swo
