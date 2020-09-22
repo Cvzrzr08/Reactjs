@@ -1,4 +1,4 @@
-let mapleadeou   = ","
+let mapleader = ","
 
 syntax on
 set mouse=a
@@ -7,22 +7,42 @@ set number
 set relativenumber
 set encoding=utf-8
 
+"schuzman
+set cursorline
+set numberwidth=1
+set showcmd
+set noshowmode
+
+
+
 "trabajo tabuladores
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=3
+set tabstop=3
 set expandtab
 set autoindent
 filetype indent on
 
 "configuracion teclas
-nmap ñ !!$SHELL<Enter>
+"para que ejecute en modo normal
+inoremap <leader><leader> <Esc>A<Ctrl>y,
+vnoremap <leader><leader> <Esc>A<Ctrl>y,
+nnoremap <leader><leader> <Esc>A<Ctrl>y,
 map W :w!<Enter>
 nmap Q :q!<Enter>
 nmap <Leader>py <Plug>(Prettier)
+nmap <Leader>s <Plug>(easymotion-s2)
+nmap <Leader>nt :NERDTreeFind<CR>
 "nnoremap <F6> :setlocal spell! spelllang=es<Enter>
 
 set t_Co=256 "for plug airline-load
 call plug#begin()
+"schuzman
+Plug 'easymotion/vim-easymotion'
+Plug 'mattn/emmet-vim'
+Plug 'preservim/nerdtree'
+Plug 'christoomey/vim-tmux-navigator'
+"............
+
 Plug 'tpope/vim-sensible'
 "plugs front end https://github.com/VictorVoid/vim-frontend#javascript-es6-react
 "SnipMatejs    https://github.com/grvcoelho/vim-javascript-snippets
@@ -101,6 +121,9 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
+
+Plugin 'frazrepo/vim-rainbow'
+Plugin 'nathanaelkane/vim-indent-guides'
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
@@ -159,4 +182,4 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" Put your non-Plugin stuff after this line     
