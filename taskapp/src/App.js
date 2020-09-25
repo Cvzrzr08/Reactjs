@@ -1,6 +1,7 @@
 import React, { useState }from 'react';
 import TaskRow from './components/TaskRow'
 import TaskBanner from './components/TaskBanner'
+import TaskCreator from './components/TaskCreator'
 
 function App() {
         
@@ -13,10 +14,18 @@ function App() {
     ]);
 
    //cambiar el estado de una tarea,para el onchange
-                     //reciviemdo una tarea
+   const createNewTask = taskName => {
+      //SI NO ENCONTRASTES !
+      if (!taskItems.find(t => t.name === taskName)) {
+         setTaskItems([...taskItems, {name: taskName, done: false}])
+                     //copia task,  tarea nueva(taskName) con prop name y done
+      }
+   }
+
+                     //reciviendo una tarea
        // ºº
    const toggleTask = task =>
-                                                          //if    true               : false
+                                                          //if    true              : false
       setTaskItems(taskItems.map(t => (t.name === task.name ? {...t, done: !t.done} : t)))
                                  //tomar(name) y comprobar con la tarea que me estan dando.
       
@@ -34,9 +43,10 @@ function App() {
 
   return (
     <div>
-       <TaskBanner userName={userName} taskItems={taskItems}/>
+       <TaskBanner userName = { userName } taskItems = { taskItems }/>
+       <TaskCreator callback = { createNewTask }/>
         <h1>hellow world</h1>
-        <table className="table table-striped table-bordered">
+        <table className = "table table-striped table-bordered">
 
             <thead>
              <tr>
@@ -54,3 +64,7 @@ function App() {
 }
 
 export default App;
+
+
+//copia de la lista ([...taskItems])
+
